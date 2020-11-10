@@ -1,0 +1,20 @@
+{
+  "githubRepo": "{repoName} GitHub repository",
+  "@githubRepo": {
+    "description": "Represents a link to a GitHub repository.",
+    "placeholders": {
+      "repoName": {
+        "example": "Flutter Boilerplate"
+      }
+    }
+  },
+  "aboutDialogDescription": "To see the source code for this app, please visit the {repoLink}.",
+  "@aboutDialogDescription": {
+    "description": "A description about how to view the source code for this app.",
+    "placeholders": {
+      "repoLink": {
+        "example": "Flutter Boilerplate GitHub repository"
+      }
+    }
+  }
+}
