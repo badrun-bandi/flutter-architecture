@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_boilerplate/screen/main.page.dart';
 import 'package:flutter_boilerplate/service/album/album.service.dart';
 import 'package:flutter_boilerplate/service/album/impl/http_album.service.dart';
 import 'package:provider/provider.dart';
@@ -17,7 +16,7 @@ class AppProvider {
         Provider<AlbumService>(
           create: (context) => HttpAlbumService(),
         ),
-        Provider<AlbumFacade>(
+        ChangeNotifierProvider<AlbumFacade>(
           create: (context) => AlbumFacade(context: context),
         ),
         ChangeNotifierProvider<Counter>(

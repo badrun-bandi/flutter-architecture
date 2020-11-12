@@ -2,7 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_boilerplate/screen/widget/text_form_field.widget.dart';
 import 'package:flutter_boilerplate/screen/widget/text.widget.dart';
 
+import '../route.dart';
+
 class LoginPage extends StatelessWidget {
+
+  Future<void> _showHomePage(BuildContext context) async {
+    final navigator = Navigator.of(context);
+    await navigator.pushNamed(
+      AppRoutes.home,
+      arguments: () => navigator.pop(),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +38,7 @@ class LoginPage extends StatelessWidget {
                 color: Colors.yellow,
                 child: Text('ENTER'),
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/home');
+                  _showHomePage(context);
                 },
               )
             ],

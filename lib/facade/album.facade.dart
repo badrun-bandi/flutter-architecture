@@ -16,8 +16,18 @@ class AlbumFacade extends BaseFacade {
     albumService = Provider.of<AlbumService>(this.context, listen: false);
   }
 
-  getAlbum(){
-   return albumService.fetchAlbum();
+  Future<Album> getAlbum()  {
+    try {
+      isLoading = true;
+      // notifyListeners();
+      error = null;
+      return albumService.fetchAlbum();
+    } catch (e) {
+      error = e;
+      rethrow;
+    } finally {
+      isLoading = false;
+      // notifyListeners();
+    }
   }
-
 }

@@ -3,9 +3,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_boilerplate/model/counter.dart';
 import 'package:provider/provider.dart';
 
+import '../route.dart';
+import 'album.page.dart';
+
 class HomePage extends StatelessWidget {
   HomePage({Key key, this.title}) : super(key: key);
   final String title;
+
+  Future<void> _showAlbumPage(BuildContext context) async {
+    final navigator = Navigator.of(context);
+    await navigator.pushNamed(
+      AppRoutes.album,
+      arguments: () => navigator.pop(),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +43,7 @@ class HomePage extends StatelessWidget {
               color: Colors.yellow,
               child: Text('ENTER'),
               onPressed: () {
-                Navigator.pushReplacementNamed(context, '/album');
+                AlbumPage.show(context);
               },
             )
           ],

@@ -11,8 +11,10 @@ class MainPage extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Boilerplate',
       theme: AppThemeData.appTheme,
-      initialRoute: '/',
-      routes: appRoutes,
+     // initialRoute: '/',
+     // routes: appRoutes,
+      onGenerateRoute: (settings) =>
+          AppRouter.onGenerateRoute(settings),
     );
   }
 }
