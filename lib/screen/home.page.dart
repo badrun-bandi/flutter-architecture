@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/model/counter.dart';
+import 'package:flutter_architecture_starter/facade/shared_preference.facade.dart';
+import 'package:flutter_architecture_starter/model/counter.dart';
 import 'package:provider/provider.dart';
 
 import '../route.dart';
@@ -9,6 +10,7 @@ import 'album.page.dart';
 class HomePage extends StatelessWidget {
   HomePage({Key key, this.title}) : super(key: key);
   final String title;
+  SharedPreferenceFacade sharedPreferenceFacade;
 
   Future<void> _showAlbumPage(BuildContext context) async {
     final navigator = Navigator.of(context);
@@ -20,6 +22,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    sharedPreferenceFacade =
+        Provider.of<SharedPreferenceFacade>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         title: Text(this.title),
@@ -39,6 +43,20 @@ class HomePage extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline4,
               ),
             ),
+            FutureBuilder<String>(
+              future: sharedPreferenceFacade.getUsername(),
+              builder: (context, snapshot) {
+                // log('snapshot: $snapshot');
+                if (snapshot.hasData) {
+                  return Text("Hi ${snapshot.data}");
+                } else if (snapshot.hasError) {
+                  return Text("${snapshot.error}");
+                }
+                // By default, show a loading spinner.
+                return CircularProgressIndicator();
+              },
+            ),
+
             RaisedButton(
               color: Colors.yellow,
               child: Text('ENTER'),

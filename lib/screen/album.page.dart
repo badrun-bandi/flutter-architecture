@@ -3,10 +3,10 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/facade/album.facade.dart';
-import 'package:flutter_boilerplate/l10n/locale.dart';
-import 'package:flutter_boilerplate/model/album.dart';
-import 'package:flutter_boilerplate/model/counter.dart';
+import 'package:flutter_architecture_starter/facade/album.facade.dart';
+import 'package:flutter_architecture_starter/l10n/locale.dart';
+import 'package:flutter_architecture_starter/model/album.dart';
+import 'package:flutter_architecture_starter/model/counter.dart';
 import 'package:provider/provider.dart';
 
 import '../route.dart';
@@ -18,16 +18,14 @@ class AlbumPage extends StatelessWidget {
   AlbumPage({Key key, this.title}) : super(key: key);
   AlbumFacade albumFacade;
 
-  Future<void> _showHomePage(BuildContext context)  {
+  Future<void> _showHomePage(BuildContext context) {
     final navigator = Navigator.of(context, rootNavigator: true);
     navigator.pop();
   }
 
   static Future<void> show(BuildContext context) async {
     final navigator = Navigator.of(context, rootNavigator: true);
-    await navigator.pushNamed(
-      AppRoutes.album
-    );
+    await navigator.pushNamed(AppRoutes.album);
   }
 
   @override

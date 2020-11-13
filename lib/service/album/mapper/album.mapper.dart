@@ -1,5 +1,6 @@
 import 'dart:developer';
-import 'package:flutter_boilerplate/model/album.dart';
+
+import 'package:flutter_architecture_starter/model/album.dart';
 
 class AlbumMapper {
   fromJson(Map<String, dynamic> json) {
@@ -11,7 +12,7 @@ class AlbumMapper {
     );
   }
 
-  convert(){
+  convert() {
     return Album();
   }
 }

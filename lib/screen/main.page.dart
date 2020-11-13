@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/theme/theme.dart';
+import 'package:flutter_architecture_starter/theme/theme.dart';
 
 import '../route.dart';
 
@@ -11,10 +11,9 @@ class MainPage extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Boilerplate',
       theme: AppThemeData.appTheme,
-     // initialRoute: '/',
-     // routes: appRoutes,
-      onGenerateRoute: (settings) =>
-          AppRouter.onGenerateRoute(settings),
+      // initialRoute: '/',
+      // routes: appRoutes,
+      onGenerateRoute: (settings) => AppRouter.onGenerateRoute(settings),
     );
   }
 }

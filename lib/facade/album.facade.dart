@@ -1,8 +1,6 @@
-import 'dart:developer';
-
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_boilerplate/model/album.dart';
-import 'package:flutter_boilerplate/service/album/album.service.dart';
+import 'package:flutter_architecture_starter/model/album.dart';
+import 'package:flutter_architecture_starter/service/album/album.service.dart';
 import 'package:provider/provider.dart';
 
 import 'base.facade.dart';
@@ -16,7 +14,7 @@ class AlbumFacade extends BaseFacade {
     albumService = Provider.of<AlbumService>(this.context, listen: false);
   }
 
-  Future<Album> getAlbum()  {
+  Future<Album> getAlbum() {
     try {
       isLoading = true;
       // notifyListeners();

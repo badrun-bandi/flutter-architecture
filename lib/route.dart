@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/screen/album.page.dart';
-import 'package:flutter_boilerplate/screen/home.page.dart';
-import 'package:flutter_boilerplate/screen/login.page.dart';
+import 'package:flutter_architecture_starter/screen/album.page.dart';
+import 'package:flutter_architecture_starter/screen/home.page.dart';
+import 'package:flutter_architecture_starter/screen/login.page.dart';
 
 class AppRoutes {
   static const album = '/album';

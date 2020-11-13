@@ -1,13 +1,12 @@
-
 import 'dart:convert';
 
-import 'package:flutter_boilerplate/model/album.dart';
-import 'package:flutter_boilerplate/service/album/mapper/album.mapper.dart';
+import 'package:flutter_architecture_starter/model/album.dart';
+import 'package:flutter_architecture_starter/service/album/mapper/album.mapper.dart';
 import 'package:http/http.dart' as http;
+
 import '../album.service.dart';
 
 class HttpAlbumService extends AlbumService {
-
   Future<Album> fetchAlbum() async {
     final response =
         await http.get('https://jsonplaceholder.typicode.com/albums/1');

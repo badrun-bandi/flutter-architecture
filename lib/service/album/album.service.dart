@@ -1,4 +1,5 @@
-import 'package:flutter_boilerplate/model/album.dart';
+import 'package:flutter_architecture_starter/model/album.dart';
+
 import '../base.service.dart';
 
 abstract class AlbumService extends BaseService {

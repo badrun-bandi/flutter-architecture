@@ -1,4 +1,4 @@
-# flutter_boilerplate
+# flutter_architecture_starter
 
 A Flutter Boilerplate application.
 
@@ -8,7 +8,7 @@ A Flutter Boilerplate application.
 
 *  To install Flutter, follow the [installation guide](https://flutter.dev/docs/get-started/install)
 *  Activate the beta channel with flutter for web support.
-*  Create a new project with `flutter create flutter_boilerplate`.
+*  Create a new project with `flutter create flutter_architecture_starter`.
 *  run project with flutter run
 
 ## 🔧 Some tools

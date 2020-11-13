@@ -1,3 +1,1 @@
-class CommonUtils {
-
-}
+class CommonUtils {}

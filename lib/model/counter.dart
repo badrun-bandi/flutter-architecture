@@ -1,5 +1,3 @@
-import 'package:flutter/cupertino.dart';
-
 import 'base.model.dart';
 
 class Counter extends BaseModel {

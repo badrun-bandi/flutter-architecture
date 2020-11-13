@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_boilerplate/model/base.model.dart';
+import 'package:flutter_architecture_starter/model/base.model.dart';
 import 'package:provider/provider.dart';
 
 class ChangeProvider<T extends BaseModel> extends StatelessWidget {

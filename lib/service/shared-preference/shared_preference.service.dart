@@ -1,19 +1,29 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'dart:developer';
+
 import 'package:shared_preferences/shared_preferences.dart';
 
-final sharedPreferencesServiceProvider =
-    Provider<SharedPreferencesService>((ref) => throw UnimplementedError());
+// Shared implementation for easy migration and upgrade
+class SharedPreferenceService {
+  Future<SharedPreferences> _sharedPreferences;
 
-class SharedPreferencesService {
-  SharedPreferencesService(this.sharedPreferences);
-  final SharedPreferences sharedPreferences;
-
-  static const onboardingCompleteKey = 'onboardingComplete';
-
-  Future<void> setOnboardingComplete() async {
-    await sharedPreferences.setBool(onboardingCompleteKey, true);
+  SharedPreferenceService() {
+    init();
   }
 
-  bool isOnboardingComplete() =>
-      sharedPreferences.getBool(onboardingCompleteKey) ?? false;
+  init() async {
+    if (_sharedPreferences == null) {
+      _sharedPreferences = SharedPreferences.getInstance();
+    }
+  }
+
+  Future<void> setStringPreference(String key, String value) async {
+    SharedPreferences prefs = await this._sharedPreferences;
+    prefs.setString(key, value);
+  }
+
+  Future<String> getStringPreference(String key) async {
+    SharedPreferences prefs = await this._sharedPreferences;
+    String stringValue = prefs.getString(key);
+    return stringValue;
+  }
 }
