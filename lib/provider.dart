@@ -5,29 +5,40 @@ import 'package:provider/provider.dart';
 
 import 'facade/album.facade.dart';
 import 'facade/shared_preference.facade.dart';
+import 'model/album.dart';
 import 'model/counter.dart';
 
-class AppProvider {
-  Widget page;
-  AppProvider({@required this.page});
+class AppMultiProvider {
+  Widget app;
+
+  AppMultiProvider({@required this.app});
 
   MultiProvider multiProvider() {
     return MultiProvider(
       providers: [
-        Provider<AlbumService>(
-          create: (context) => HttpAlbumService(),
-        ),
+        // Provider<LocalizationService>(
+        //   create: (BuildContext context) => JsonLocalizationService(),
+        // ),
         ChangeNotifierProvider<AlbumFacade>(
-          create: (context) => AlbumFacade(context: context),
+          create: (context) => AlbumFacade(),
         ),
         ChangeNotifierProvider<SharedPreferenceFacade>(
-          create: (context) => SharedPreferenceFacade(context: context),
+          create: (context) => SharedPreferenceFacade(),
+        ),
+        Provider<AlbumService>(
+          create: (context) => HttpAlbumService(),
         ),
         ChangeNotifierProvider<Counter>(
           create: (context) => Counter(),
         ),
+        Provider<Album>(
+          create: (context) => Album(),
+        ),
+       Provider<Record>(
+          create: (context) => Record(),
+        ),
       ],
-      child: this.page,
+      child: app,
     );
   }
 }

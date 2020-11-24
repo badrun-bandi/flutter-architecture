@@ -1,4 +1,4 @@
+// For application logging
 abstract class BaseService {
-  BaseService();
   void dispose() {}
 }

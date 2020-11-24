@@ -1,29 +1,37 @@
-import 'dart:developer';
-
 import 'package:shared_preferences/shared_preferences.dart';
 
-// Shared implementation for easy migration and upgrade
-class SharedPreferenceService {
+import '../base.service.dart';
+
+// Service implementation for easy migration and upgrade
+class SharedPreferenceService extends BaseService {
   Future<SharedPreferences> _sharedPreferences;
+  static final SharedPreferenceService _instance =
+      SharedPreferenceService._internal();
 
-  SharedPreferenceService() {
-    init();
+  factory SharedPreferenceService() {
+    return _instance;
   }
 
-  init() async {
-    if (_sharedPreferences == null) {
-      _sharedPreferences = SharedPreferences.getInstance();
-    }
+  // SharedPreferenceService() : super() {
+  //   init();
+  // }
+
+  SharedPreferenceService._internal() : super() {
+    _sharedPreferences ??= SharedPreferences.getInstance();
   }
+
+  // void init() async {
+  //   _sharedPreferences ??= SharedPreferences.getInstance();
+  // }
 
   Future<void> setStringPreference(String key, String value) async {
-    SharedPreferences prefs = await this._sharedPreferences;
-    prefs.setString(key, value);
+    var prefs = await _sharedPreferences;
+    await prefs.setString(key, value);
   }
 
   Future<String> getStringPreference(String key) async {
-    SharedPreferences prefs = await this._sharedPreferences;
-    String stringValue = prefs.getString(key);
+    var prefs = await _sharedPreferences;
+    var stringValue = prefs.getString(key);
     return stringValue;
   }
 }

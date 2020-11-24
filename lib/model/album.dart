@@ -1,13 +1,17 @@
-class Album {
-  final int userId;
-  final int id;
-  final String title;
-  Album({this.userId, this.id, this.title});
+import 'base.model.dart';
+
+class Album extends BaseModel {
+  final List<Record> records;
+  Album({this.records}){
+  }
 }
 
-class AlbumEndpoint {
+class Record extends BaseModel {
   final int userId;
   final int id;
   final String title;
-  AlbumEndpoint({this.userId, this.id, this.title});
+  Record({this.userId, this.id, this.title}){
+  }
 }
+
+

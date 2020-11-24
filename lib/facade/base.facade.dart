@@ -1,9 +1,8 @@
-import 'package:flutter/material.dart';
 
-abstract class BaseFacade with ChangeNotifier {
-  final BuildContext context;
+import 'package:flutter/foundation.dart';
+
+abstract class BaseFacade with ChangeNotifier implements Listenable {
   bool isLoading = false;
   dynamic error;
-
-  BaseFacade({@required this.context});
+  BaseFacade();
 }

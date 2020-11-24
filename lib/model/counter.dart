@@ -1,6 +1,5 @@
-import 'base.model.dart';
-
-class Counter extends BaseModel {
+import 'package:flutter/foundation.dart';
+class Counter extends ChangeNotifier {
   int value = 0;
 
   void increment() {

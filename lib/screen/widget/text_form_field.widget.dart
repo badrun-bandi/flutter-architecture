@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 final TextEditingController textFormFieldController =
-    new TextEditingController();
+    TextEditingController();
 
 class TextFormFieldWidget extends StatelessWidget {
   @override

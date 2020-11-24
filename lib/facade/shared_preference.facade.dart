@@ -1,4 +1,5 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:developer';
+
 import 'package:flutter_architecture_starter/service/shared-preference/shared_preference.service.dart';
 
 import 'base.facade.dart';
@@ -6,17 +7,26 @@ import 'base.facade.dart';
 // One facade responsibility to get Shared Preference instance across pages
 // Extends for single responsibility. ex: UserPreferenceFacade, AppPreferenceFacade
 class SharedPreferenceFacade extends BaseFacade {
-  final sharedPreferenceService = SharedPreferenceService();
-  static const userNameKey = 'userName';
+  final SharedPreferenceService sharedPreferenceService =
+      SharedPreferenceService();
+  static String userNameKey = 'userName';
 
-  final BuildContext context;
-  SharedPreferenceFacade({@required this.context}) : super(context: context);
+  SharedPreferenceFacade() : super();
 
   Future<String> getUsername() async {
-    return await sharedPreferenceService.getStringPreference(userNameKey);
+    return await sharedPreferenceService
+        .getStringPreference(userNameKey)
+        .then((value) {
+      log('[getUsername] Preference Value: $value',
+          name: 'SharedPreferenceFacade');
+      return value;
+    });
   }
 
-  Future<String> setUsername(String value) async {
-    await sharedPreferenceService.setStringPreference(userNameKey, value);
+  Future<void> setUsername(String value) async {
+    log('[setUsername] Preference Value : $value, Key : $userNameKey',
+        name: 'SharedPreferenceFacade');
+    return await sharedPreferenceService.setStringPreference(
+        userNameKey, value);
   }
 }

@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_architecture_starter/facade/shared_preference.facade.dart';
 import 'package:flutter_architecture_starter/screen/widget/text.widget.dart';
 import 'package:flutter_architecture_starter/screen/widget/text_form_field.widget.dart';
-import 'package:provider/provider.dart';
 
 import '../route.dart';
 
 class LoginPage extends StatelessWidget {
-  SharedPreferenceFacade sharedPreferenceFacade;
-
   Future<void> _showHomePage(BuildContext context) async {
     final navigator = Navigator.of(context);
     await navigator.pushNamed(
@@ -19,8 +15,6 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    sharedPreferenceFacade =
-        Provider.of<SharedPreferenceFacade>(context, listen: false);
     return Scaffold(
       body: Center(
         child: Container(
@@ -44,14 +38,6 @@ class LoginPage extends StatelessWidget {
                 child: Text('ENTER'),
                 onPressed: () {
                   _showHomePage(context);
-                },
-              ),
-              RaisedButton(
-                color: Colors.green,
-                child: Text('SAVE NAME'),
-                onPressed: () {
-                  sharedPreferenceFacade
-                      .setUsername(textFormFieldController.text);
                 },
               )
             ],
