@@ -1,4 +1,4 @@
-# flutter_architecture_starter
+# flutter architecture starter
 
 A Flutter Boilerplate application.
 
